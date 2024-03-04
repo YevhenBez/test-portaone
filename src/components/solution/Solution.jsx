@@ -8,7 +8,33 @@ const Solution = () => {
     );
     
   const minNumber = arrayNumbers.reduce((min, current) => Math.min(min, current), Infinity);
+    
+function quickselectMedian(arr) {
+  const length = arr.length;
+  // Якщо масив має парну кількість елементів
+  if (length % 2 === 0) {
+    return 0.5 * (quickselect(arr, length / 2 - 1) + quickselect(arr, length / 2));
+  }
+  // Якщо масив має непарну кількість елементів
+  return quickselect(arr, length / 2);
+}
 
+function quickselect(arr, k) {
+  if (arr.length === 1) return arr[0];
+  const pivot = arr[arr.length - 1];
+  const left = [];
+  const right = [];
+  for (let i = 0; i < arr.length - 1; i++) {
+    arr[i] < pivot ? left.push(arr[i]) : right.push(arr[i]);
+  }
+  return k < left.length
+    ? quickselect(left, k)
+    : k > left.length
+    ? quickselect(right, k - left.length - 1)
+    : pivot;
+}
+
+    const median = quickselectMedian(arrayNumbers);
 
   return (
     <div className={css.solutionContainer}>
@@ -42,7 +68,7 @@ const Solution = () => {
             <td className={css.solutionContainer__table__td}>
               {minNumber}
             </td>
-            <td className={css.solutionContainer__table__td}>медіана</td>
+                      <td className={css.solutionContainer__table__td}>{median}</td>
             <td className={css.solutionContainer__table__td}>
               середнє арифметичне значення
             </td>
