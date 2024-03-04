@@ -1,0 +1,37 @@
+.solutionContainer {
+    background-color: #ffffff;
+    border-radius: 30px;
+}
+
+.solutionContainer__table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.solutionContainer__table__tr:nth-child(even) {
+    background-color: #eee;
+}
+
+.solutionContainer__table__tr__th {
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgb(230, 228, 228);
+
+    color: #b5b7c0;
+    text-align: left;
+
+    font-size: 14px;
+    font-weight: 600;
+    width: auto;
+}
+
+.solutionContainer__table__td {
+    text-align: left;
+
+    padding: 0px 60px 0px 0px;
+    width: auto;
+    border-bottom: 1px solid rgb(230, 228, 228);
+    color: #292d32;
+    font-size: 14px;
+    font-weight: 600;
+}
