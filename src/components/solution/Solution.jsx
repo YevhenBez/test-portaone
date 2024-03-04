@@ -36,6 +36,9 @@ function quickselect(arr, k) {
 
     const median = quickselectMedian(arrayNumbers);
 
+    const sum = arrayNumbers.reduce((a, b) => a + b, 0);
+const avg = sum / arrayNumbers.length;
+
   return (
     <div className={css.solutionContainer}>
       <table className={css.solutionContainer__table}>
@@ -70,7 +73,7 @@ function quickselect(arr, k) {
             </td>
                       <td className={css.solutionContainer__table__td}>{median}</td>
             <td className={css.solutionContainer__table__td}>
-              середнє арифметичне значення
+              {avg}
             </td>
             <td className={css.solutionContainer__table__td}>
               найбільша послідовність чисел (які ідуть один за одним), яка
