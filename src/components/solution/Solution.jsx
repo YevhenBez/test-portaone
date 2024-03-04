@@ -37,7 +37,31 @@ function quickselect(arr, k) {
     const median = quickselectMedian(arrayNumbers);
 
     const sum = arrayNumbers.reduce((a, b) => a + b, 0);
-const avg = sum / arrayNumbers.length;
+    const avg = sum / arrayNumbers.length;
+    
+    function findLongestIncreasingSequence(array) {
+  let longestSequence = [];
+  let currentSequence = [];
+
+  for (let i = 0; i < array.length; i++) {
+    if (currentSequence.length === 0 || array[i] > currentSequence[currentSequence.length - 1]) {
+      currentSequence.push(array[i]);
+      if (currentSequence.length > longestSequence.length) {
+        longestSequence = [...currentSequence];
+      }
+    } else {
+      currentSequence = [array[i]];
+    }
+        }
+        
+        
+        return longestSequence;
+    }
+    
+    const longestIncreasingSequence = findLongestIncreasingSequence(arrayNumbers);
+
+    const longestIncreasingSequenceString = longestIncreasingSequence.join(', ');
+
 
   return (
     <div className={css.solutionContainer}>
@@ -76,8 +100,7 @@ const avg = sum / arrayNumbers.length;
               {avg}
             </td>
             <td className={css.solutionContainer__table__td}>
-              найбільша послідовність чисел (які ідуть один за одним), яка
-              збільшується
+              {longestIncreasingSequenceString}
             </td>
             <td className={css.solutionContainer__table__td}>
               найбільша послідовність чисел (які ідуть один за одним), яка
