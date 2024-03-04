@@ -5,7 +5,10 @@ const Solution = () => {
   const maxNumber = arrayNumbers.reduce(
     (max, current) => Math.max(max, current),
     -Infinity
-  );
+    );
+    
+  const minNumber = arrayNumbers.reduce((min, current) => Math.min(min, current), Infinity);
+
 
   return (
     <div className={css.solutionContainer}>
@@ -37,7 +40,7 @@ const Solution = () => {
           <tr>
             <td className={css.solutionContainer__table__td}>{maxNumber}</td>
             <td className={css.solutionContainer__table__td}>
-              мінімальне число
+              {minNumber}
             </td>
             <td className={css.solutionContainer__table__td}>медіана</td>
             <td className={css.solutionContainer__table__td}>
