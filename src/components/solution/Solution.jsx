@@ -62,6 +62,27 @@ function quickselect(arr, k) {
 
     const longestIncreasingSequenceString = longestIncreasingSequence.join(', ');
 
+    function findLongestDecreasingSequence(array) {
+  let longestDecreasingSequence = [];
+  let currentDecreasingSequence = [];
+
+  for (let i = 0; i < array.length; i++) {
+    if (currentDecreasingSequence.length === 0 || array[i] < currentDecreasingSequence[currentDecreasingSequence.length - 1]) {
+      currentDecreasingSequence.push(array[i]);
+      if (currentDecreasingSequence.length > longestDecreasingSequence.length) {
+        longestDecreasingSequence = [...currentDecreasingSequence];
+      }
+    } else {
+      currentDecreasingSequence = [array[i]];
+    }
+  }
+
+  return longestDecreasingSequence;
+}
+
+    const finalLongestDecreasingSequence = findLongestDecreasingSequence(arrayNumbers);
+
+    const longestDecreasingSequenceString = finalLongestDecreasingSequence.join(', ');
 
   return (
     <div className={css.solutionContainer}>
@@ -103,8 +124,7 @@ function quickselect(arr, k) {
               {longestIncreasingSequenceString}
             </td>
             <td className={css.solutionContainer__table__td}>
-              найбільша послідовність чисел (які ідуть один за одним), яка
-              зменьшується
+              {longestDecreasingSequenceString}
             </td>
           </tr>
         </tbody>
